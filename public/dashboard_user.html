@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>User Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-green-700 flex items-center gap-2">
+      <i class="fas fa-user"></i> User Dashboard
+    </h1>
+    <a href="/index.html" class="text-red-600 hover:underline flex items-center gap-1">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+  </header>
+
+  <!-- Main Content -->
+  <main class="p-6 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+
+      <a href="/view.html" class="bg-green-100 hover:bg-green-200 p-5 rounded-xl shadow hover:shadow-md transition">
+        <i class="fas fa-calendar-alt text-2xl text-green-700 mb-2"></i>
+        <p class="font-semibold text-green-900">View OT Schedules</p>
+      </a>
+
+      <a href="/list.html" class="bg-blue-100 hover:bg-blue-200 p-5 rounded-xl shadow hover:shadow-md transition">
+        <i class="fas fa-user-md text-2xl text-blue-700 mb-2"></i>
+        <p class="font-semibold text-blue-900">View Doctor List</p>
+      </a>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center text-sm text-gray-400 p-4 mt-12 shadow-inner">
+    Made with <i class="fas fa-heart text-red-400"></i> for Patient Portal
+  </footer>
+
+</body>
+</html>

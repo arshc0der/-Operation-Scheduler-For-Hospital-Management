@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  <style>
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #3498db;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 text-center mb-6">
+    <h1 class="text-2xl font-bold text-blue-700 flex justify-center items-center gap-2">
+      <i class="fas fa-sign-in-alt"></i> Admin / User Login
+    </h1>
+  </header>
+
+  <!-- Login Form -->
+  <main class="flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg shadow w-full max-w-sm">
+      <form id="loginForm" class="space-y-4">
+        <input id="email" type="email" placeholder="Email" class="w-full border p-2 rounded" required />
+        <input id="password" type="password" placeholder="Password" class="w-full border p-2 rounded" required />
+
+        <button type="submit" id="loginBtn" class="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700 transition">
+          <span id="btnText"><i class="fas fa-key mr-2"></i>Login</span>
+        </button>
+
+        <p id="loginError" class="text-red-500 text-sm hidden mt-2 text-center">Invalid credentials</p>
+      </form>
+
+      <p class="text-sm mt-4 text-center">
+        New user? <a href="/register.html" class="text-blue-500 hover:underline">Register</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-gray-400 mt-12 p-4">
+    &copy; 2025 OT Scheduler | Powered by Firebase
+  </footer>
+
+  <script src="/env.js"></script>
+  <script type="module">
+    import { auth, db } from '/js/firebase.js';
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+    const loginForm = document.getElementById('loginForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const btnText = document.getElementById('btnText');
+    const loginError = document.getElementById('loginError');
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginError.classList.add('hidden');
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Show loading
+      btnText.innerHTML = '<span class="spinner"></span>Logging in...';
+      loginBtn.disabled = true;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const uid = userCredential.user.uid;
+
+        // Get user role from Firestore
+        const userDocRef = doc(db, 'users', uid);
+        const userDoc = await getDoc(userDocRef);
+
+        if (!userDoc.exists()) {
+          loginError.textContent = "No role found. Please contact admin.";
+          loginError.classList.remove('hidden');
+          throw new Error("No user doc");
+        }
+
+        const role = userDoc.data().role || "user";
+
+        if (role === "admin") {
+          window.location.href = "/dashboard_admin.html";
+        } else {
+          window.location.href = "/dashboard_user.html";
+        }
+
+      } catch (error) {
+        console.error(error);
+        loginError.textContent = "Invalid email or password.";
+        loginError.classList.remove('hidden');
+        btnText.innerHTML = '<i class="fas fa-key mr-2"></i>Login';
+        loginBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+  <style>
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #10b981;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      animation: spin 0.8s linear infinite;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 text-center mb-6">
+    <h1 class="text-2xl font-bold text-green-600 flex justify-center items-center gap-2">
+      <i class="fas fa-user-plus"></i> Create an Account
+    </h1>
+  </header>
+
+  <!-- Register Form -->
+  <main class="flex justify-center items-center">
+    <div class="bg-white p-6 rounded-lg shadow w-full max-w-sm">
+      <form id="registerForm" class="space-y-4">
+        <input id="email" type="email" placeholder="Email" class="w-full border p-2 rounded" required />
+        <input id="password" type="password" placeholder="Password" class="w-full border p-2 rounded" required />
+
+        <button type="submit" id="registerBtn" class="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700 transition">
+          <span id="btnText"><i class="fas fa-user-plus mr-2"></i>Register</span>
+        </button>
+
+        <p id="registerError" class="text-red-500 text-sm hidden mt-2 text-center">Registration failed</p>
+        <p id="registerSuccess" class="text-green-500 text-sm hidden mt-2 text-center">Registered successfully! You can now login.</p>
+      </form>
+
+      <p class="text-sm mt-4 text-center">
+        Already have an account? <a href="/index.html" class="text-blue-500 hover:underline">Login</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 mt-12 p-4">
+    &copy; 2025 OT Scheduler | Register
+  </footer>
+
+  <script src="/env.js"></script>
+  <script type="module">
+    import { auth, db } from '/js/firebase.js';
+    import {
+      createUserWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+    import {
+      setDoc,
+      doc
+    } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+    const form = document.getElementById('registerForm');
+    const btnText = document.getElementById('btnText');
+    const registerBtn = document.getElementById('registerBtn');
+    const errorMsg = document.getElementById('registerError');
+    const successMsg = document.getElementById('registerSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMsg.classList.add('hidden');
+      successMsg.classList.add('hidden');
+      registerBtn.disabled = true;
+      btnText.innerHTML = '<span class="spinner"></span>Registering...';
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const uid = userCredential.user.uid;
+
+        // Save user role (user by default)
+        await setDoc(doc(db, "users", uid), {
+          email: email,
+          role: "user"
+        });
+
+        successMsg.classList.remove('hidden');
+        form.reset();
+      } catch (error) {
+        console.error(error.message);
+        errorMsg.textContent = error.message;
+        errorMsg.classList.remove('hidden');
+      } finally {
+        btnText.innerHTML = '<i class="fas fa-user-plus mr-2"></i>Register';
+        registerBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

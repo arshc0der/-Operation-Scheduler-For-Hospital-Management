@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Schedule OT</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body class="bg-gray-100 text-gray-800 p-6 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 mb-6">
+    <h2 class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+      <i class="fas fa-calendar-plus"></i> Schedule Surgery
+    </h2>
+  </header>
+
+  <!-- Form -->
+  <main class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
+    <form id="scheduleForm" class="space-y-4">
+      <!-- Doctor -->
+      <input id="doctorId" placeholder="Doctor ID" class="w-full border p-2 rounded" required />
+      <input id="doctorName" placeholder="Doctor Name" class="w-full border p-2 rounded" required />
+
+      <!-- Patient -->
+      <input id="patientId" placeholder="Patient ID" class="w-full border p-2 rounded" required />
+      <input id="patientName" placeholder="Patient Name" class="w-full border p-2 rounded" required />
+
+      <!-- Other details -->
+      <input id="date" type="date" class="w-full border p-2 rounded" required />
+      <input id="time" type="time" class="w-full border p-2 rounded" required />
+      <input id="anesthesiaType" placeholder="Anesthesia Type" class="w-full border p-2 rounded" />
+      <input id="anesthesiologist" placeholder="Anesthesiologist Name" class="w-full border p-2 rounded" />
+      <textarea id="materials" placeholder="Drugs/Instruments" class="w-full border p-2 rounded"></textarea>
+
+      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+        <i class="fas fa-plus-circle mr-2"></i> Submit Schedule
+      </button>
+    </form>
+
+    <!-- Schedule List -->
+    <div id="scheduleList" class="space-y-4 mt-8">
+      <!-- Populated dynamically -->
+    </div>
+  </main>
+
+  <footer class="text-center text-sm text-gray-400 mt-12 p-4">
+    Powered by Firebase & Tailwind
+  </footer>
+
+  <script src="/env.js"></script>
+  <script type="module" src="/js/schedule.js"></script>
+</body>
+</html>

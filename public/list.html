@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Doctors Available</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-6 mb-6">
+    <h2 class="text-3xl font-bold text-green-700 flex items-center gap-3">
+      <i class="fas fa-user-md text-green-500"></i> Available Doctors
+    </h2>
+  </header>
+
+  <!-- Doctor List -->
+  <main class="max-w-4xl mx-auto px-4">
+    <div id="doctorList" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Loaded by JS -->
+    </div>
+  </main>
+
+  <footer class="text-center text-xs text-gray-400 mt-12 p-6">
+    &copy; 2025 OT Scheduler | View Doctors
+  </footer>
+
+  <script src="/env.js"></script>
+  <script type="module" src="/js/list.js"></script>
+</body>
+</html>
