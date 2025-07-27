@@ -12,15 +12,20 @@
   />
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans">
+  
+  <!-- Navbar -->
+  <header class="bg-white shadow-sm p-4 flex flex-wrap justify-between items-center gap-y-2">
+    <div class="flex items-center gap-3 text-xl font-bold text-green-700">
+      <i class="fas fa-clipboard-list mr-2"></i> User Dashboard
+    </div>
 
-  <!-- Header -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-green-700 flex items-center gap-2">
-      <i class="fas fa-user"></i> User Dashboard
-    </h1>
-    <a href="/index.html" class="text-red-600 hover:underline flex items-center gap-1">
-      <i class="fas fa-sign-out-alt"></i> Logout
-    </a>
+    <!-- User Info + Logout -->
+    <div class="flex items-center gap-4">
+      <div id="userInfo" class="text-sm text-right hidden sm:block"></div>
+      <button id="logoutBtn" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm">
+        <i class="fas fa-sign-out-alt mr-1"></i> Logout
+      </button>
+    </div>
   </header>
 
   <!-- Main Content -->
@@ -45,5 +50,8 @@
     Made with <i class="fas fa-heart text-red-400"></i> for Patient Portal
   </footer>
 
+  <script src="/env.js"></script>
+  <script type="module" src="/js/user-dashboard.js"></script>
+  <script type="module" src="/js/logout.js"></script>
 </body>
 </html>

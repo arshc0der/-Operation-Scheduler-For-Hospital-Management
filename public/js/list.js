@@ -3,7 +3,9 @@ import {
   collection,
   getDocs
 } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { requireAuth } from './authGuard.js';
 
+requireAuth('user').then(({ user }) => {
 const doctorList = document.getElementById('doctorList');
 
 async function loadDoctors() {
@@ -29,3 +31,10 @@ async function loadDoctors() {
 }
 
 loadDoctors();
+}).catch(() => {
+  document.body.innerHTML = `
+    <div class="text-center mt-20 text-red-600 text-lg font-semibold">
+      Access denied. Please <a href="/index.html" class="underline text-blue-500">login</a> to continue.
+    </div>
+  `;
+});

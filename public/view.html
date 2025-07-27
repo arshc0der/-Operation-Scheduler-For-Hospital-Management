@@ -11,28 +11,32 @@
     crossorigin="anonymous"
   />
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
 
   <!-- Header -->
-  <header class="bg-white shadow p-6 mb-6">
-    <h2 class="text-3xl font-bold text-blue-700 flex items-center gap-3">
-      <i class="fas fa-calendar-check text-blue-500"></i>
-      OT Surgery Schedules
-    </h2>
-    <p class="text-sm text-gray-500 mt-1">Click on doctor names for more info (future feature)</p>
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+      <h2 class="text-3xl font-bold text-blue-700 flex items-center gap-3">
+        <i class="fas fa-calendar-check text-blue-500 text-2xl"></i>
+        OT Surgery Schedules
+      </h2>
+      <p class="text-sm text-gray-500 mt-1">Click on doctor names for more info (future feature)</p>
+    </div>
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-5xl mx-auto px-4">
-    <div id="scheduleList" class="space-y-4">
-      <!-- Filled dynamically -->
+  <main class="flex-grow max-w-6xl mx-auto px-4 py-8">
+    <div id="scheduleList" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Schedule cards injected via JS -->
     </div>
   </main>
 
-  <footer class="text-center text-xs text-gray-400 mt-12 p-6">
-    &copy; 2025 OT Scheduler • Firebase + Tailwind
+  <!-- Footer -->
+  <footer class="bg-white border-t text-center text-xs text-gray-500 py-4">
+    &copy; 2025 OT Scheduler — View Schedule
   </footer>
 
+  <!-- Scripts -->
   <script src="/env.js"></script>
   <script type="module" src="/js/view.js"></script>
 </body>

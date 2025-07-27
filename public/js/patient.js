@@ -6,7 +6,9 @@ import {
   deleteDoc,
   doc
 } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { requireAuth } from './authGuard.js';
 
+requireAuth('admin').then(({ user }) => {
 const form = document.getElementById('patientForm');
 const patientList = document.getElementById('patientList');
 
@@ -73,3 +75,11 @@ async function loadPatients() {
 }
 
 loadPatients();
+
+}).catch(() => {
+  document.body.innerHTML = `
+    <div class="text-center mt-20 text-red-600 text-lg font-semibold">
+      Access denied. Please <a href="/index.html" class="underline text-blue-500">login</a> to continue.
+    </div>
+  `;
+});

@@ -3,7 +3,9 @@ import {
   getDocs,
   collection
 } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { requireAuth } from './authGuard.js';
 
+requireAuth().then(({ user }) => {
 const scheduleList = document.getElementById('scheduleList');
 
 async function loadSchedules() {
@@ -44,3 +46,10 @@ async function loadSchedules() {
 }
 
 loadSchedules();
+}).catch(() => {
+  document.body.innerHTML = `
+    <div class="text-center mt-20 text-red-600 text-lg font-semibold">
+      Access denied. Please <a href="/index.html" class="underline text-blue-500">login</a> to continue.
+    </div>
+  `;
+});
