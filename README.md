@@ -38,7 +38,51 @@ The **Operation Scheduler for Hospital Management** is a web-based system built 
 
 Built with minimal UI and maximum functionality in mind — no frameworks required.
 
+## 🚀 Features
+
+### 👨‍⚕️ Admin Module
+
+- Admin Login
+- Manage Doctor Details
+- Manage Patient Details
+- Post Operation Schedule Details
+- Analyze OT activity and efficiency
+- Monitor material/resource use for planned procedures
+
+### 🧑‍💻 User Module
+
+- User Registration & Login
+- View Doctor Information
+- View Surgical Details
+- Access OT schedules (past and upcoming)
+
 ---
+
+## 🗂️ Surgery Scheduling Includes
+
+Each surgery entry includes:
+
+- Date and Time of Surgery
+- Operation Theater (OT) ID
+- Anesthesia Type & Anesthesiologist Name
+- Primary Surgeon and Assistant (if any)
+- Operating Room Nurses
+- Pre- and Post-operative Event Logs
+- Surgical Reports (Charts, Transcriptions)
+- Surgeon Remarks
+- Required Materials, Drugs, and Instruments
+
+---
+
+## 📆 Dynamic OT Activity Interface
+
+- Real-time OT activity board
+- Emergency updates and instant rescheduling
+- OT activity log dashboard
+- Daily, weekly, and monthly schedule views
+
+---
+
 
 ## 🔧 Firebase Setup
 
