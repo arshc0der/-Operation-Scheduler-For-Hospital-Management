@@ -31,7 +31,7 @@
 The **Operation Scheduler for Hospital Management** is a web-based system built using Firebase, HTML, CSS (Tailwind), and JavaScript. It allows hospitals to efficiently manage:
 
 - 🔐 Secure authentication for Admin and Users
-- 👨‍⚕️ Doctor and 👩‍⚕️ Patient records
+- 👨‍⚕️ Doctor and Patient records
 - 🕒 Scheduling of surgeries and OT activities
 - 📃 Uploading surgical reports (if needed)
 - 📊 Viewing schedules dynamically
