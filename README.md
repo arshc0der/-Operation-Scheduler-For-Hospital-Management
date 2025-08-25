@@ -181,6 +181,17 @@ firebase deploy
 > (You can include screenshots here to show UI, if desired)
 
 ---
+## 🛡️ Code Quality
+
+This project follows best practices to ensure:
+
+- ✅ **Modular Code**  
+- ✅ **Safe Execution**  
+- ✅ **Testable Functions**  
+- ✅ **Maintainability**  
+- ✅ **Portability Across OS**  
+
+All actions are logged using JavaScript logging mechanisms.
 
 ## 🙌 Contributing
 
