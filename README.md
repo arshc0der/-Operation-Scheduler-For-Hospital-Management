@@ -3,11 +3,11 @@
 
 # 🏥 Operation Scheduler For Hospital Management
 
-[![License](https://img.shields.io/github/license/your-username/Operation-Scheduler-For-Hospital-Management?color=blue)](LICENSE)
-[![GitHub Repo stars](https://img.shields.io/github/stars/your-username/Operation-Scheduler-For-Hospital-Management?style=social)](https://github.com/your-username/Operation-Scheduler-For-Hospital-Management/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/Operation-Scheduler-For-Hospital-Management?style=social)](https://github.com/your-username/Operation-Scheduler-For-Hospital-Management/network)
-[![Open Issues](https://img.shields.io/github/issues/your-username/Operation-Scheduler-For-Hospital-Management)](https://github.com/your-username/Operation-Scheduler-For-Hospital-Management/issues)
-[![Last Commit](https://img.shields.io/github/last-commit/your-username/Operation-Scheduler-For-Hospital-Management)](https://github.com/your-username/Operation-Scheduler-For-Hospital-Management/commits/main)
+[![License](https://img.shields.io/github/license/arshc0der/Operation-Scheduler-For-Hospital-Management?color=blue)](LICENSE)
+[![GitHub Repo stars](https://img.shields.io/github/stars/arshc0der/Operation-Scheduler-For-Hospital-Management?style=social)](https://github.com/arshc0der/Operation-Scheduler-For-Hospital-Management/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/arshc0der/Operation-Scheduler-For-Hospital-Management?style=social)](https://github.com/arshc0der/Operation-Scheduler-For-Hospital-Management/network)
+[![Open Issues](https://img.shields.io/github/issues/arshc0der/Operation-Scheduler-For-Hospital-Management)](https://github.com/arshc0der/Operation-Scheduler-For-Hospital-Management/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/arshc0der/Operation-Scheduler-For-Hospital-Management)](https://github.com/arshc0der/Operation-Scheduler-For-Hospital-Management/commits/main)
 [![Maintained](https://img.shields.io/maintenance/yes/2025)]()
 [![Made With](https://img.shields.io/badge/Made%20With-JavaScript-yellow)]()
 [![Firebase](https://img.shields.io/badge/Backend-Firebase-orange)]()
@@ -22,7 +22,7 @@
 [![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen)]()
 [![Contribution](https://img.shields.io/badge/Contributions-Welcome-lightgrey)]()
 [![Security](https://img.shields.io/badge/Security-Firestore%20Rules-important)]()
-[![GitHub Repo Size](https://img.shields.io/github/repo-size/your-username/Operation-Scheduler-For-Hospital-Management)]()
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/arshc0der/Operation-Scheduler-For-Hospital-Management)]()
 
 ---
 
