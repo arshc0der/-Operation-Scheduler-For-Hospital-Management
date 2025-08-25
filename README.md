@@ -153,6 +153,6 @@ This project is open-sourced under the [MIT License](LICENSE).
 
 ### 💬 Need Help?
 
-Create a GitHub issue.
+Create a GitHub issue
 
 ---
